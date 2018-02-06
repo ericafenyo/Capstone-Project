@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (C) 2018 Eric Afenyo
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+  -->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_article_thumbnail"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_article_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@string/font_family_medium"
+        android:text="Killer who shot daughters taunts ex-wife at execution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_article_thumbnail"
+        app:layout_constraintTop_toTopOf="@+id/iv_article_thumbnail" />
+
+    <TextView
+        android:id="@+id/tv_article_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@string/font_family_regular"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="John Battaglia, who called his estranged wife as he shot their daughters in 2001, smiled as she watched his execution in Texas."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_article_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_title" />
+
+    <TextView
+        android:id="@+id/tv_article_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="NBC News"
+        app:layout_constraintStart_toStartOf="@+id/tv_article_description"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_description" />
+
+    <TextView
+        android:id="@+id/tv_article_publish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:text="2 hours ago"
+        app:layout_constraintStart_toEndOf="@+id/tv_article_source"
+        app:layout_constraintTop_toTopOf="@+id/tv_article_source" />
+
+</android.support.constraint.ConstraintLayout>
