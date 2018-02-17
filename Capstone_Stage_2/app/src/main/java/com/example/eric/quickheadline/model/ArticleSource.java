@@ -28,6 +28,9 @@ public class ArticleSource {
     public String status;
     @SerializedName("sources")
     @Expose
-    public List<Source> sources = null;
+    public List<Source> sources;
 
+    public List<Source> getSources() {
+        return sources;
+    }
 }
