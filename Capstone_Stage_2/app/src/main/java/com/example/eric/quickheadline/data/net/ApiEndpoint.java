@@ -16,6 +16,8 @@
 
 package com.example.eric.quickheadline.data.net;
 
+import com.example.eric.quickheadline.BuildConfig;
+import com.example.eric.quickheadline.model.ArticleSource;
 import com.example.eric.quickheadline.model.News;
 import com.example.eric.quickheadline.model.Weather;
 
@@ -29,16 +31,15 @@ import retrofit2.http.GET;
  */
 
 public interface ApiEndpoint {
-    @GET("/forecast/25c175c9ab9d3ee7c3df79e14708ab77/37.8267,-122.4233?exclude=[minutely,hourly,flags]&lang=en")
+    @GET("/forecast/" + BuildConfig.WEATHER_API_KEY + "/37.8267,-122.4233?exclude=[minutely,hourly," +
+            "flags]&lang=en")
     Call<Weather> getWeather();
 
-    @GET("top-headlines?country=us&apiKey=2db932d68b6d49428a3d5f5ab16c2902")
+    @GET("top-headlines?country=us&apiKey=" + BuildConfig.WEATHER_API_KEY)
     Call<News> getArticle();
 
-    @GET("/forecast/25c175c9ab9d3ee7c3df79e14708ab77/37.8267,-122.4233?exclude=[minutely,hourly,flags]&lang=en")
-    Observable<Weather> getObservableWeather();
+    @GET("sources?apiKey=" + BuildConfig.WEATHER_API_KEY)
+    Observable<ArticleSource> getArticleSource();
 
-    @GET("top-headlines?country=us&apiKey=2db932d68b6d49428a3d5f5ab16c2902")
-    Observable<News> getObservableArticle();
 
 }
