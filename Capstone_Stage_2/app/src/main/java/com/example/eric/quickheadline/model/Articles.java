@@ -27,7 +27,7 @@ public class Articles implements Parcelable{
 
     @SerializedName("source")
     @Expose
-    private Source source;
+    private SourceName source;
     @SerializedName("author")
     @Expose
     private String author;
@@ -61,7 +61,7 @@ public class Articles implements Parcelable{
         }
     };
 
-    public Source getSource() {
+    public SourceName getSource() {
         return source;
     }
 

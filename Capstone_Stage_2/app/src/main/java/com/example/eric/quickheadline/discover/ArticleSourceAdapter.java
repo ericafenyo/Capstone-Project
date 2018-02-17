@@ -16,15 +16,41 @@
 
 package com.example.eric.quickheadline.discover;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.eric.quickheadline.model.Source;
+
+import java.util.List;
 
 /**
  * Created by eric on 17/02/2018.
  */
 
 public class ArticleSourceAdapter extends RecyclerView.Adapter<ArticleSourceAdapter.ArticleSourceViewHolder>{
+    private List<Source> mData;
+    private Context mContext;
+    private onItemSelected mOnItemSelected;
+
+    public ArticleSourceAdapter(Context mContext, onItemSelected mOnItemSelected) {
+        this.mContext = mContext;
+        this.mOnItemSelected = mOnItemSelected;
+    }
+
+    public void setData(List<Source> mData) {
+        this.mData = mData;
+    }
+
+    //Item click listener Interface
+    public interface onItemSelected {
+        void onClick(int position, String webUrl);
+    }
+
+
+
+
     @Override
     public ArticleSourceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
