@@ -17,13 +17,10 @@
 package com.example.eric.quickheadline;
 
 import android.app.Application;
-import android.arch.lifecycle.ViewModelProvider;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.example.eric.quickheadline.data.net.ApiEndpoint;
-import com.example.eric.quickheadline.viewmodel.IViewModel;
-import com.example.eric.quickheadline.viewmodel.QHViewModel;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,6 +34,7 @@ import okhttp3.Cache;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -88,7 +86,8 @@ public class NetworkModule {
     ApiEndpoint provideWeatherService(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(BuildConfig.NEWS_BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(BuildConfig.WEATHER_BASE_URL)
                 .client(okHttpClient)
                 .build()
                 .create(ApiEndpoint.class);
@@ -101,6 +100,7 @@ public class NetworkModule {
     ApiEndpoint provideArticleService(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(BuildConfig.NEWS_BASE_URL)
                 .client(okHttpClient)
                 .build()
@@ -113,10 +113,30 @@ public class NetworkModule {
     ApiEndpoint provideMapService(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(BuildConfig.NEWS_BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(BuildConfig.MAP_BASE_URL)
                 .client(okHttpClient)
                 .build()
                 .create(ApiEndpoint.class);
     }
+
+//    @Provides
+//    @Singleton
+//    QHViewModel provideViewModel(QHViewModel viewModel){
+//        return viewModel;
+//
+//    }
+//
+//    @Provides
+//    @Singleton
+//    BookmarkViewModelContract ProvideViewModelContract(QHViewModel viewModel){
+//        return  viewModel;
+//    }
+//
+//    @Provides
+//    @Singleton
+//    BookmarkRepository ProvideRepository(BookmarkViewModelContract modelContract){
+//        return new BookmarkRepository(modelContract);
+//    }
 
 }

@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Quick Headline</string>
+
+    <!--font family-->
+    <string name="font_family_medium" translatable="false">sans-serif-medium</string>
+    <string name="font_family_regular" translatable="false">sans-serif</string>
+    <string name="font_family_black" translatable="false">sans-serif-black</string>
+
+    <!--action menu-->
+
+    <string name="action_text_size">Text size</string>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     - By convention, "action" denotes that this String will be used as the label for an        -
+     - Action, typically from the action bar.
+     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <string name="action_search">Search</string>
+
+    <!--Content Authorities for the Providers-->
+    <string name="article_provider_content_authority">com.example.eric.quickheadline.data.articleprovider</string>
+    <string name="bookmarks_provider_content_authority">com.example.eric.quickheadline.data.db.bookmarkprovider</string>
+    <string name="current_weather_provider_content_authority">com.example.eric.quickheadline.data.db.currentweatherprovider</string>
+    <string name="daily_weather_provider_content_authority">com.example.eric.quickheadline.data.db.dailyweatherprovider</string>
+
+
+    <!--article Body Text Size Configuration-->
+    <string name="article_body_text_size_small">14</string>
+    <string name="article_body_text_size_normal">16</string>
+    <string name="article_body_text_size_medium">20</string>
+    <string name="article_body_text_size_large">24</string>
+    <string name="loader_finished_message">LOADING COMPLETE</string>
+    <string name="no_connectivity">NO INTERNET ACCESS</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ti">Killer who shot daughters taunts ex-wife at execution</string>
+    <string name="bo">John Battaglia, who called his estranged wife as he shot their daughters in 2001, smiled as she watched his execution in Texas.</string>
+    <string name="so">NBC News</string>
+    <string name="tim">2 hours ago</string>
+    <string name="nav_title_latest">Latest</string>
+    <string name="nav_title_discover">Discover</string>
+    <string name="nav_title_bookmarks">Bookmarks</string>
+    <string name="nav_title_settings">Settings</string>
+    <string name="read_full_article">Read full article</string>
+
+    <!--TODO: set content description fot all images with this todo text-->
+    <string name="todo">TODO</string>
+</resources>

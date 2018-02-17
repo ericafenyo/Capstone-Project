@@ -19,11 +19,14 @@ package com.example.eric.quickheadline;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.view.Window;
+import android.view.WindowManager;
 
 import javax.inject.Inject;
 
@@ -34,14 +37,15 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
+
         loadFragment(ArticleDetailFragment.newInstance());
     }
 
     private void loadFragment(Fragment fragment) {
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frame_container_detail, fragment);
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.frame_container_detail, fragment);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

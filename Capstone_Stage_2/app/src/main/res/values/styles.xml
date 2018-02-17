@@ -1,0 +1,49 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
+
+
+    <!--News article text styles-->
+    <style name="ArticleTextBody2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorArticleBody</item>
+        <item name="android:fontFamily">@string/font_family_medium</item>
+    </style>
+
+    <style name="ArticleTextBody1">
+        <item name="android:textSize">@dimen/text_size_body</item>
+        <item name="android:textColor">@color/colorArticleBody</item>
+    </style>
+
+
+    <style name="ArticleTextTitle">
+        <item name="android:textSize">@dimen/text_size_title</item>
+        <item name="android:textColor">@color/colorArticleTitle</item>
+        <item name="android:fontFamily">@string/font_family_medium</item>
+    </style>
+
+    <style name="ArticleTextHeadline">
+        <item name="android:textSize">@dimen/text_size_Headline</item>
+        <item name="android:textColor">@color/colorArticleHeadline</item>
+    </style>
+
+    <style name="ArticleTextSubHeading">
+        <item name="android:textSize">@dimen/text_size_subhead</item>
+        <item name="android:textColor">@color/colorArticleSubhead</item>
+
+    </style>
+
+    <style name="ArticleTextCaption">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+        <item name="android:textColor">@color/colorArticleCaption</item>
+    </style>
+
+    <string name="action_share_text">Share</string>
+</resources>

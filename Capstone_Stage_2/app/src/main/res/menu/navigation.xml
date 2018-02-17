@@ -19,21 +19,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:enabled="true"
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_for_you"
-        android:title="Latest" />
+        android:title="@string/nav_title_latest" />
     <item
+        android:enabled="true"
         android:id="@+id/nav_Discover"
         android:icon="@drawable/ic_explore"
-        android:title="Discover" />
+        android:title="@string/nav_title_discover" />
     <item
+        android:enabled="true"
         android:id="@+id/nav_bookmarks"
         android:icon="@drawable/ic_bookmark"
-        android:title="Bookmarks" />
+        android:title="@string/nav_title_bookmarks" />
 
     <item
+        android:enabled="true"
         android:id="@+id/nav_settings"
         android:icon="@drawable/ic_settings"
-        android:title="Settings" />
+        android:title="@string/nav_title_settings" />
 
 </menu>

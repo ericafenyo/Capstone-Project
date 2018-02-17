@@ -16,9 +16,11 @@
 
 package com.example.eric.quickheadline.data.net;
 
-import com.example.eric.quickheadline.data.schema.News;
-import com.example.eric.quickheadline.data.schema.Weather;
+import com.example.eric.quickheadline.model.News;
+import com.example.eric.quickheadline.model.Weather;
 
+
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -27,9 +29,16 @@ import retrofit2.http.GET;
  */
 
 public interface ApiEndpoint {
-    @GET("/forecast/25c175c9ab9d3ee7c3df79e14708ab77/37.8267,-122.4233?exclude=[minutely,hourly,daily,flags]&lang=en")
+    @GET("/forecast/25c175c9ab9d3ee7c3df79e14708ab77/37.8267,-122.4233?exclude=[minutely,hourly,flags]&lang=en")
     Call<Weather> getWeather();
 
-    @GET("top-headlines?country=fr&apiKey=2db932d68b6d49428a3d5f5ab16c2902")
+    @GET("top-headlines?country=us&apiKey=2db932d68b6d49428a3d5f5ab16c2902")
     Call<News> getArticle();
+
+    @GET("/forecast/25c175c9ab9d3ee7c3df79e14708ab77/37.8267,-122.4233?exclude=[minutely,hourly,flags]&lang=en")
+    Observable<Weather> getObservableWeather();
+
+    @GET("top-headlines?country=us&apiKey=2db932d68b6d49428a3d5f5ab16c2902")
+    Observable<News> getObservableArticle();
+
 }

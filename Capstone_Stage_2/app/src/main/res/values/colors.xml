@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryDark">#C2185B</color>
+    <color name="colorAccent">#448AFF</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#666666</color>
+
+
+    <color name="colorArticleHeadline">#de000000</color>
+    <color name="colorArticleSubhead">#de000000</color>
+    <color name="colorArticleTitle">#de000000</color>
+    <color name="colorArticleBody">#de000000</color>
+    <color name="colorArticleCaption">#89000000</color>
+</resources>

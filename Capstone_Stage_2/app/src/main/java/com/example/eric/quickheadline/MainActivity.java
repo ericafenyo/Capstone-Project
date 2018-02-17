@@ -16,6 +16,7 @@
 
 package com.example.eric.quickheadline;
 
+
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -23,11 +24,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
+import com.example.eric.quickheadline.jobservice.ArticleSyncTask;
+import com.example.eric.quickheadline.jobservice.WeatherSyncTask;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import butterknife.BindView;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //    TextView tvWindSpeed;
 
     @BindView(R.id.navigation_view)
-    BottomNavigationView navigationView;
+    BottomNavigationViewEx navigationView;
     private Toolbar mToolbar;
 
     @Override
@@ -66,33 +68,38 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-         mToolbar = findViewById(R.id.toolbar);
 
-        if (mToolbar != null) {
-            setSupportActionBar(mToolbar);
-            getSupportActionBar().setTitle("Latest");
-            mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
-        }
+//         mToolbar = findViewById(R.id.toolbar);
+//
+//        if (mToolbar != null) {
+//            setSupportActionBar(mToolbar);
+//            getSupportActionBar().setTitle("Latest");
+//            mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
+//        }
+
+        WeatherSyncTask.execute(getApplication());
+        ArticleSyncTask.execute(getApplication());
 
         navigationView.setOnNavigationItemSelectedListener(this);
-//        configureNavigationView();
-//        navigationView.setCurrentItem(0);
+        navigationView.setOnClickListener(null);
+        configureNavigationView();
+        navigationView.setCurrentItem(0);
 
 
 //        // attaching bottom sheet behaviour - hide / show on scroll
 //        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams)
 //                navigationView.getLayoutParams();
 //        layoutParams.setBehavior(new BottomNavigationBehavior());
-//        setChecked();
+
     }
 
 
-//    private void configureNavigationView(){
-//        navigationView.enableAnimation(false);
-//        navigationView.enableShiftingMode(false);
-//        navigationView.enableItemShiftingMode(false);
-//
-//    }
+    private void configureNavigationView(){
+        navigationView.enableAnimation(true);
+        navigationView.enableShiftingMode(false);
+        navigationView.enableItemShiftingMode(false);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,11 +117,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.nav_home:
                 fragment = HomeFragment.newInstance();
                 loadFragment(fragment);
-                mToolbar.setTitle("Latest");
+
 
                 return true;
             case R.id.nav_Discover:
-                mToolbar.setTitle("Discover");
+
                 fragment = CategoryFragment.newInstance();
                 loadFragment(fragment);
 //                Log.v("position",String.valueOf(position));
@@ -123,18 +130,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                 return true;
             case R.id.nav_bookmarks:
-                mToolbar.setTitle("Bookmarks");
-                fragment = BookmarksFragment.newInstance();
+
+                fragment = BookmarkFragment.newInstance();
                 loadFragment(fragment);
 //                Log.v("position",String.valueOf(position));
 
                 return true;
             case R.id.nav_settings:
-                mToolbar.setTitle("Settings");
                 fragment = SettingFragment.newInstance();
                 loadFragment(fragment);
 //                Log.v("position",String.valueOf(position));
-
                 return true;
 
         }
@@ -145,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container_main, fragment);
-        transaction.addToBackStack(null);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 
@@ -153,8 +158,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         boolean checked = true;
         if (checked){
 
-//            navigationView.setCurrentItem(0);
+            navigationView.setSelectedItemId(0);
         }
 
     }
+
+
+
+
 }

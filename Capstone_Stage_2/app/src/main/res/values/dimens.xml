@@ -17,10 +17,13 @@
 
 <resources>
     <!--Text size -->
-    <dimen name="text_size_small">12sp</dimen>
-    <dimen name="text_size_normal">16sp</dimen>
-    <dimen name="text_size_medium">20sp</dimen>
-    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
+    <dimen name="text_size_subhead">16sp</dimen>
+    <dimen name="text_size_title">20sp</dimen>
+    <dimen name="text_size_Headline">24sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+
+
 
     <!--custom margin and padding-->
     <dimen name="margin_padding_small">8dp</dimen>
@@ -39,4 +42,5 @@
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_press_translation_z">12dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
+
 </resources>

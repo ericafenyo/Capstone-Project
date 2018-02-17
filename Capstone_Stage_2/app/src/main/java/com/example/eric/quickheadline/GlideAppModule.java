@@ -21,6 +21,8 @@ import com.bumptech.glide.module.AppGlideModule;
 
 /**
  * Created by eric on 04/02/2018.
+ * <p>
+ * An Empty class that generates Glide modules
  */
 
 @GlideModule

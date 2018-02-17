@@ -17,8 +17,10 @@
 package com.example.eric.quickheadline;
 
 import com.example.eric.quickheadline.data.AppModule;
-import com.example.eric.quickheadline.viewmodel.QHViewModel;
+import com.example.eric.quickheadline.data.net.ApiEndpoint;
+import com.example.eric.quickheadline.jobservice.WeatherSyncTask;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -31,4 +33,15 @@ import dagger.Component;
 @Singleton
 public interface NetworkComponent {
     void inject(QHViewModel viewModel);
+    void inject(WeatherSyncTask weatherSyncTask);
+
+    @Named("article")
+    ApiEndpoint getArticleEndpoint();
+
+    @Named("weather")
+    ApiEndpoint getWeatherEndpoint();
+
+    @Named("maps")
+    ApiEndpoint getMapEndpoint();
+
 }

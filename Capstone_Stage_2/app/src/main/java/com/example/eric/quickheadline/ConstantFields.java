@@ -16,10 +16,23 @@
 
 package com.example.eric.quickheadline;
 
+import android.content.Intent;
+import android.net.Uri;
+
 /**
  * Created by eric on 06/02/2018.
+ * This class contains constant variables used throughout the app. They can be accessed
+ * through calls to ConstantFields.Constant name.
  */
 
 public class ConstantFields {
+
+    /*constants used for Intent Extra*/
+    public static final String ARTICLE_IMAGE_TRANSITION_NAME = "ARTICLE_IMAGE_TRANSITION_NAME";
+    public static final String EXTRA_ARTICLE_ITEM = "EXTRA_ARTICLE_ITEM";
+    public static final String EXTRA_ARTICLE_ITEM_POSITION = "EXTRA_ARTICLE_ITEM_POSITION";
+    public static final String EXTRA_ARTICLE_ITEM_SOURCE = "EXTRA_ARTICLE_ITEM_SOURCE";
+
+
 
 }
