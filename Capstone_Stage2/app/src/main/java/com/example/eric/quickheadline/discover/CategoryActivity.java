@@ -151,11 +151,7 @@ public class CategoryActivity extends AppCompatActivity implements SearchAdaptor
             mAdapter.setData(articles);
             recyclerView.setHasFixedSize(true);
             recyclerView.setNestedScrollingEnabled(false);
-            if (HelperUtils.isLandscapeMode(this)) {
-                recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-            } else if (HelperUtils.isPortraitMode(this)) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            }
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
         });
     }
 
