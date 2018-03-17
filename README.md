@@ -3,7 +3,7 @@
 I made a News app as my Udacity Android Development Course final project
 and the followings are required in order to use or test the app
 
-1. Java sdk 8 and above
+1. Java jdk 8 and above
 2. Dark Sky API key : https://darksky.net/dev
 3. Google Places and Maps AP keys  
 4. The News API key : https://newsapi.org
