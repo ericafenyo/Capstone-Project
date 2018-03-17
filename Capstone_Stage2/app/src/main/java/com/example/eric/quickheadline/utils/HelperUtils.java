@@ -116,6 +116,7 @@ public class HelperUtils {
 
     public static void viewOnWeb(Context context, String webUrl) {
         Intent webViewIntent = WebActivity.newIntent(context, webUrl);
+        webViewIntent.setFlags(FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(webViewIntent);
     }
 
