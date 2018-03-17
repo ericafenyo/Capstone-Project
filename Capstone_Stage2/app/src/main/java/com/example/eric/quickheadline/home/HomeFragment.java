@@ -109,9 +109,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
     public HomeFragment() {
         //Empty public constructor
     }
-
-    @Inject
-    SharedPreferences preferences;
+    
     @Inject
     PreferenceUtils preferenceUtils;
 
@@ -138,12 +136,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
         ((MyApp) getActivity().getApplication()).getComponent().inject(this);
-        preferences.registerOnSharedPreferenceChangeListener((sharedPreferences, key) -> {
-            if (key.equals(ConstantFields.PREF_CALLBACK)) {
-                Log.v(LOG_TAG, preferences.getString(key, " default"));
-            }
-        });
-
+      
 //        validateArticleResponse();
         unitId = preferenceUtils.getTemperatureUnitId();
         mAdapter = new ArticleAdapter(getActivity(), this);
