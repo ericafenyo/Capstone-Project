@@ -110,8 +110,6 @@
      - Used as activity shared element transition names                                                                  -
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <string name="forecast_icon_transition_name">Forecast Icon</string>
-    <string name="forecast_summary_transition_name">Forecast Summary</string>
-    <string name="forecast_real_feel_transition_name">Forecast Apparent Temperature</string>
     <string name="forecast_temperature_transition_name">Forecast Temperature</string>
     <string name="forecast_unit_transition_name">Forecast Unit</string>
 

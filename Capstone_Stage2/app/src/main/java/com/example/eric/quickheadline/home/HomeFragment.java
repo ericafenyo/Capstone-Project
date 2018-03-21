@@ -431,14 +431,10 @@ public class HomeFragment extends Fragment implements ArticleAdapter.onItemSelec
         public void onClick(View v) {
             Intent intent = new Intent(getActivity(), WeatherDetailActivity.class);
             Pair<View, String> forecastIconPair = Pair.create(ivIcon, getActivity().getString(R.string.forecast_icon_transition_name));
-            Pair<View, String> forecastSummary = Pair.create(tvSummary, getActivity().getString(R.string.forecast_summary_transition_name));
-            Pair<View, String> forecastReelFeel = Pair.create(tvRealFeel, getString(R.string.forecast_real_feel_transition_name));
             Pair<View, String> forecastTemp = Pair.create(tvTemperature, getString(R.string.forecast_temperature_transition_name));
             Pair<View, String> forecastUnit = Pair.create(tvUnit, getString(R.string.forecast_unit_transition_name));
             ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
                     forecastIconPair,
-                    forecastSummary,
-                    forecastReelFeel,
                     forecastTemp,
                     forecastUnit
             );
