@@ -35,6 +35,7 @@ import com.example.eric.quickheadline.di.MyApp;
 import com.example.eric.quickheadline.discover.DiscoverFragment;
 import com.example.eric.quickheadline.sync.ArticleSyncUtils;
 import com.example.eric.quickheadline.sync.WeatherSyncUtils;
+import com.example.eric.quickheadline.utils.HelperUtils;
 import com.example.eric.quickheadline.utils.PreferenceUtils;
 
 import javax.inject.Inject;
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         ButterKnife.bind(this);
         ((MyApp) getApplication()).getComponent().inject(this);
 
-        Log.v(LOG_TAG, "MainActivity");
         //start data sync...
         ArticleSyncUtils.initialize(getApplication());
         WeatherSyncUtils.initialize(getApplication());
@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         navigation.setOnNavigationItemSelectedListener(this);
         //select first navigation menu on startup
-        if (!preferenceUtils.isFirstTimeChecked()) {
+        if (preferenceUtils.isFirstTimeChecked()) {
             View view = navigation.findViewById(R.id.navigation_home);
             view.performClick();
-            preferenceUtils.setFirstTimeChecked(true);
+            preferenceUtils.setFirstTimeChecked(false);
         }
 
         getSupportFragmentManager().addOnBackStackChangedListener(() -> {
@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //for some unknown reason, this is not true when the app is closed from recent apps
+        //if the app is closed and it is not undergoing configuration Changes
+        //then we set the FirstTimeChecked value to true so that the first navigationView menu item is reselected when the user
+        //reopen the app again
         if (!this.isChangingConfigurations() && this.isFinishing()) {
-            preferenceUtils.setFirstTimeChecked(false);
+            preferenceUtils.setFirstTimeChecked(true);
         }
     }
 

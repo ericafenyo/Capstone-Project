@@ -73,6 +73,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:clickable="true"
         android:focusable="true"
+        android:contentDescription="@string/accessibility_add_to_bookmarks"
         app:elevation="@dimen/fab_elevation"
         app:layout_anchor="@id/appbar_layout"
         app:layout_anchorGravity="bottom|right|end"

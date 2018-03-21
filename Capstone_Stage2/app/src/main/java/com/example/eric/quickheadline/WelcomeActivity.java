@@ -229,7 +229,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private void onEmpty(String location) {
         launchPlacePicker();
         Log.v(LOG_TAG, "onEmpty()");
-        HelperUtils.toast(getApplicationContext(), String.format("%s is not supported", location));
+        HelperUtils.toast(getApplicationContext(), getString(R.string.format_country_not_supported,location));
     }
 }
 

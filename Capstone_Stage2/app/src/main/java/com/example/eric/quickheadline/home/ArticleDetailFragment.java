@@ -28,6 +28,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -144,11 +145,16 @@ public class ArticleDetailFragment extends Fragment implements View.OnClickListe
 
 
             //set article title
-            tvArticleTitle.setText(title);
-            tvArticleTitle.setTypeface(custom_font);
+
+                tvArticleTitle.setText(title);
+                tvArticleTitle.setTypeface(custom_font);
+
+
             //set article description
-            tvDetailArticleDescription.setText(description);
-            tvDetailArticleDescription.setTextSize(Float.parseFloat(preferenceUtils.getArticleTextSize()));
+
+                tvDetailArticleDescription.setText(description);
+                tvDetailArticleDescription.setTextSize(Float.parseFloat(preferenceUtils.getArticleTextSize()));
+
             //set article published time
             tvDetailArticlePublishedTime.setText(DateUtils.getLocalDate(DateUtils.getUTCDate(publishedAt)));
             //set article source

@@ -44,6 +44,7 @@
     <string name="error_weather_notification">Error while building notification</string>
     <string name="search_hint_text">Search for topics,news,…</string>
     <string name="msg_welcome">Welcome</string>
+    <string name="error_no_internet">No internet connectivity</string>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      - Content Authorities for the Providers                                                       -
@@ -87,8 +88,10 @@
     <string name="format_visibility"><xllif.g id="distance">%1$.0f</xllif.g><xllif.g> mi </xllif.g></string>
     <string name="format_humidity"><xllif.g id="humidity">%1$.0f</xllif.g><xllif.g>%%</xllif.g></string>
     <string name="error_search_failed">Error while searching:</string>
-    <string name="fahrenheit_unit">°F</string>
-    <string name="celsius_unit">°C</string>
+    <string name="fahrenheit_unit"><xllif.g id="unit">°F</xllif.g></string>
+    <string name="celsius_unit"><xllif.g id="unit">°C</xllif.g></string>
+    <string name="format_country_not_supported"><xliff.g> %s </xliff.g>is not supported</string>
+    <string name="format_realFeel">RealFeel <xliff.g id="degrees">%s°</xliff.g></string>
 
     <!--Article callback message-->
     <string name="callback_msg_on_empty" translatable="false">onEmpty</string>
@@ -99,6 +102,9 @@
     <!-- content description bis-->
     <string name="contentDescription">icon</string>
     <string name="content_description_app_logo">app logo</string>
+    <string name="accessibility_add_to_bookmarks">Add to bookmarks</string>
+    <string name="accessibility_read_more">Read more</string>
+    <string name="accessibility_continue">continue</string>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      - Used as activity shared element transition names                                                                  -
@@ -151,7 +157,4 @@
     <string name="pref_key_article_text_size" translatable="false">key_article_text_size</string>
     <string name="pref_summary_enable_notifications_false">Disabled</string>
     <string name="pref_summary_enable_notifications_true">Enabled</string>
-    <string name="error_no_internet">No internet connectivity</string>
-
-
 </resources>

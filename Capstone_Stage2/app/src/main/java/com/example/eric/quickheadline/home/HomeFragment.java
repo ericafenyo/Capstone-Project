@@ -18,14 +18,15 @@ package com.example.eric.quickheadline.home;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.transition.Fade;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
@@ -38,7 +39,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,14 +51,12 @@ import android.widget.TextView;
 
 import com.example.eric.quickheadline.R;
 import com.example.eric.quickheadline.SettingsActivity;
-import com.example.eric.quickheadline.SplashActivity;
 import com.example.eric.quickheadline.contract.ArticleEntry;
 import com.example.eric.quickheadline.contract.WeatherEntry;
 import com.example.eric.quickheadline.di.GlideApp;
 import com.example.eric.quickheadline.di.MyApp;
 import com.example.eric.quickheadline.model.Bookmark;
 import com.example.eric.quickheadline.model.News;
-import com.example.eric.quickheadline.utils.ConstantFields;
 import com.example.eric.quickheadline.utils.ForecastUtils;
 import com.example.eric.quickheadline.utils.HelperUtils;
 import com.example.eric.quickheadline.utils.PreferenceUtils;
@@ -77,7 +75,7 @@ import static android.provider.BaseColumns._ID;
 /**
  * A simple {@link Fragment} for displaying top article stories
  */
-public class HomeFragment extends Fragment implements View.OnClickListener, ArticleAdapter.onItemSelected {
+public class HomeFragment extends Fragment implements ArticleAdapter.onItemSelected {
     private static final int ID_ARTICLE_LOADER = 250;
     private static final int ID_WEATHER_LOADER = 856;
     private static final String LOG_TAG = HomeFragment.class.getName();//for debugging purpose
@@ -116,12 +114,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
-
-    @Override
-    public void onClick(View v) {
-        //change location
-        resetLocationConfigurations();
-    }
+//
+//    @Override
+//    public void onClick(View v) {
+//        //change location
+//        resetLocationConfigurations();
+//    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -136,8 +134,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
         ((MyApp) getActivity().getApplication()).getComponent().inject(this);
-      
-//        validateArticleResponse();
+
         unitId = preferenceUtils.getTemperatureUnitId();
         mAdapter = new ArticleAdapter(getActivity(), this);
         //noinspection ConstantConditions
@@ -145,7 +142,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
         getActivity().getSupportLoaderManager().initLoader(ID_WEATHER_LOADER, null, loaderWeather);
 
         weatherCard.setOnClickListener(new onClickImpl());
-//        btnChangeLocation.setOnClickListener(this);
         return view;
     }
 
@@ -203,6 +199,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
         Fragment fragment = ArticlePagerFragment.newInstance(articles, position);
         getFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(R.id.frame_container_main, fragment, fragment.getTag())
                 .addToBackStack(fragTAG)
                 .commit();
@@ -344,7 +341,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
                 double temperature = data.getDouble(index_temperature);
                 double apparentTemperature = data.getDouble(index_apparent_temperature);
                 tvTemperature.setText(formatTemperature(unitId, temperature));
-                tvRealFeel.setText(String.format("RealFeel %s° ", formatTemperature(unitId, apparentTemperature)));
+                tvRealFeel.setText(getString(R.string.format_realFeel, formatTemperature(unitId, apparentTemperature)));
 
                 //setup forecast summary
                 String summary = data.getString(index_summary);
@@ -369,34 +366,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Arti
 
     ////////// Inner Methods ////////////////////
 
-//    /**
-//     * Checks whether the Article response from {@link ArticleSyncTask#execute(Context, Callback)}
-//     * is an empty list or not.
-//     * This is possible by the help of {@link Callback}
-//     * methods which saves  request states such us "onEmpty or onNull in SharedPreference
-//     */
-//    private void validateArticleResponse() {
-//        String callback = preferenceUtils.getCallback();
-//        Log.v(LOG_TAG, "validateArticleResponse()");
-//        Log.e(LOG_TAG, callback);//for debugging purpose
-//        if (callback.equals(getString(R.string.callback_msg_on_empty))) {
-//            viewLocationNotSupported.setVisibility(View.VISIBLE);
-//            HelperUtils.hideLoading(recyclerView, progressBar);
-//        } else if (callback.equals(getString(R.string.callback_msg_on_success))) {
-//            //noinspection ConstantConditions
-//            getActivity().getSupportLoaderManager().restartLoader(ID_ARTICLE_LOADER, null, loaderArticle);
-//        }
-//    }
 
-    /**
-     * relaunches the welcome screen
-     */
-    private void resetLocationConfigurations() {
-        preferenceUtils.setFirstTimeLaunch(true);
-        startActivity(new Intent(getActivity(), SplashActivity.class));
-        //noinspection ConstantConditions
-        getActivity().finish();
-    }
+//    /**
+//     * relaunches the welcome screen
+//     */
+//    private void resetLocationConfigurations() {
+//        preferenceUtils.setFirstTimeLaunch(true);
+//        startActivity(new Intent(getActivity(), SplashActivity.class));
+//        //noinspection ConstantConditions
+//        getActivity().finish();
+//    }
 
     /**
      * formats and add appropriate units to temperature values

@@ -18,7 +18,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="232dp"
+    android:layout_height="@dimen/article_card_height"
     android:layout_marginEnd="@dimen/margin_padding_small"
     android:layout_marginStart="@dimen/margin_padding_small"
     android:layout_marginTop="@dimen/margin_padding_small">

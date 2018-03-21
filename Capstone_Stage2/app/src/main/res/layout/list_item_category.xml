@@ -19,7 +19,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/size_category_card_height"
-    android:layout_margin="8dp">
+    android:layout_margin="@dimen/margin_padding_small">
 
     <ImageView
         android:id="@+id/iv_discover_category"

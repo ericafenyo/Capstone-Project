@@ -29,7 +29,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
 import android.transition.Slide;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -169,7 +168,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements LoaderMa
         double temperature = data.getDouble(index_temperature);
         double apparentTemperature = data.getDouble(index_apparent_temperature);
         tvTemperature.setText(formatTemperature(unitId, temperature));
-        tvRealFeel.setText(String.format("RealFeel %s° ", formatTemperature(unitId, apparentTemperature)));
+        tvRealFeel.setText(getString(R.string.format_realFeel, formatTemperature(unitId, apparentTemperature)));
 
         //setup forecast summary
         String summary = data.getString(index_summary);

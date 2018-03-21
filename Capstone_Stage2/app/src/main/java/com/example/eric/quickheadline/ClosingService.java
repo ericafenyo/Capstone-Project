@@ -43,7 +43,7 @@ public class ClosingService extends Service {
     public void onTaskRemoved(Intent rootIntent) {
         super.onTaskRemoved(rootIntent);
         PreferenceUtils preferenceUtils = ((MyApp) getApplication()).getComponent().getPreferenceUtils();
-        preferenceUtils.setFirstTimeChecked(false);
+        preferenceUtils.setFirstTimeChecked(true);
         stopSelf();
     }
 }

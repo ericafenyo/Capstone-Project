@@ -21,7 +21,8 @@ android {
 
         //TODO: Add your Google Places API here
         //https://developers.google.com/places/android-api/
-        manifestPlaceholders = [placeApiKey: "YOUR_KEY_HER"]
+        manifestPlaceholders = [placeApiKey: "YOUR_KEY_HERE"]
+
     }
     buildTypes {
         release {
@@ -59,9 +60,6 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "com.android.support:support-vector-drawable:${supportLibVersion}"
     implementation "com.android.support:support-v4:${supportLibVersion}"
-
-    //palette
-    implementation "com.android.support:palette-v7:${supportLibVersion}"
 
     //preference
     implementation "com.android.support:preference-v7:${supportLibVersion}"

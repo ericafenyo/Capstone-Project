@@ -34,7 +34,7 @@ public class DateUtils {
         String day = getLocalDay(date);
         String month = convertMonth(getLocalMonth(date));
 
-        return String.format("%s %s ", month, day);
+        return String.format("%s %s", month, day);
     }
 
     /**

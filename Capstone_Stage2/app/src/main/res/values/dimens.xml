@@ -57,4 +57,5 @@
     <dimen name="size_weather_card_height">200dp</dimen>
     <dimen name="size_widget_min_height">150dp</dimen>
     <dimen name="size_widget_min_width">250dp</dimen>
+    <dimen name="article_card_height">232dp</dimen>
 </resources>

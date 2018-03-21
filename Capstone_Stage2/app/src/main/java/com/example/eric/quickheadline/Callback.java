@@ -44,7 +44,7 @@ public interface Callback {
     void onEmpty();
 
     /**
-     * can be called to signal an null state
+     * can be called to signal a null state
      */
     void onNull();
 }

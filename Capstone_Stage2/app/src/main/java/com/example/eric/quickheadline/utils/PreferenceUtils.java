@@ -51,7 +51,7 @@ public class PreferenceUtils {
     }
 
     public boolean isFirstTimeChecked() {
-        final boolean defValue = false;
+        final boolean defValue = true;
         return mPreferences.getBoolean(PREF_IS_FIRST_TIME_CHECKED, defValue);
     }
 
