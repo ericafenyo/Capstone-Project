@@ -15,73 +15,109 @@
   -->
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/article_card_height"
+    android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/margin_padding_small"
     android:layout_marginStart="@dimen/margin_padding_small"
-    android:layout_marginTop="@dimen/margin_padding_small">
+    android:layout_marginBottom="8dp">
 
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         android:orientation="vertical">
 
 
+        <TextView
+            android:id="@+id/text_article_title"
+            style="@style/Headline_6"
+            android:layout_width="0dp"
+            android:textColor="@color/ColorHighEmphasisDark"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_padding_small"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:contentDescription="@string/accessibility_title"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/image_article_thumbnail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_article_source"
+            tools:text="Paris attacker identified as Chechen-born French citizen" />
+
+        <TextView
+            android:id="@+id/text_article_description"
+            style="@style/Body_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/margin_padding_small"
+            android:contentDescription="@string/accessibility_description"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_article_thumbnail"
+            tools:text="Azimov was shot dead by French police after he killed a 29-year-old man and wounded four others near the Opera Garnier." />
+
+
         <ImageView
-            android:id="@+id/iv_article_thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/image_article_thumbnail"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:contentDescription="@string/accessibility_thumbnail"
             android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/business" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/gradient_tint"
-            android:foreground="?selectableItemBackground" />
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/text_article_source"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="vertical">
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:contentDescription="@string/accessibility_source"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image_article_thumbnail"
+            tools:text="Le Monde" />
 
-            <TextView
-                android:id="@+id/tv_article_source"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_padding_small"
-                android:layout_marginStart="@dimen/margin_padding_small"
-                android:contentDescription="@string/accessibility_source"
-                android:textColor="@color/colorWhite" />
 
-            <TextView
-                android:id="@+id/tv_article_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_padding_small"
-                android:layout_marginStart="@dimen/margin_padding_small"
-                android:contentDescription="@string/accessibility_source"
-                android:textColor="@color/colorWhite" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dee4e4e4"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_article_description" />
 
-            <TextView
-                android:id="@+id/tv_article_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_padding_small"
-                android:layout_marginEnd="@dimen/margin_padding_small"
-                android:layout_marginStart="@dimen/margin_padding_small"
-                android:layout_marginTop="@dimen/margin_padding_xsmall"
-                android:contentDescription="@string/accessibility_title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/colorWhite" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/button_add_bookmark"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/activity_horizontal_padding"
+            android:layout_marginBottom="@dimen/margin_padding_small"
+            android:layout_marginTop="@dimen/margin_padding_small"
+            android:background="?selectableItemBackgroundBorderless"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_small"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:text="@string/accessibility_add_to_bookmarks"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider" />
 
-    </FrameLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
 
 </android.support.v7.widget.CardView>

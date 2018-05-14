@@ -39,7 +39,7 @@
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_press_translation_z">12dp</dimen>
     <dimen name="text_size_article_title">28sp</dimen>
-    <dimen name="icon_size_weather_condition">100dp</dimen>
+    <dimen name="icon_size_weather_condition">60dp</dimen>
     <dimen name="text_size_temp">80sp</dimen>
     <dimen name="size_view_divider">1dp</dimen>
     <dimen name="size_app_bar">250dp</dimen>
@@ -54,8 +54,11 @@
     <dimen name="size_search_card_elevation">1dp</dimen>
     <dimen name="size_search_image_width">144dp</dimen>
     <dimen name="size_search_image_height">120dp</dimen>
-    <dimen name="size_weather_card_height">200dp</dimen>
+    <dimen name="size_weather_card_height">136dp</dimen>
     <dimen name="size_widget_min_height">150dp</dimen>
     <dimen name="size_widget_min_width">250dp</dimen>
     <dimen name="article_card_height">232dp</dimen>
+
+
+
 </resources>

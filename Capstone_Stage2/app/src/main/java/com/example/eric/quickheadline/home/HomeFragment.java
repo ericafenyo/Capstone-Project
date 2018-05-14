@@ -34,6 +34,7 @@ import android.support.v4.content.Loader;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -60,6 +61,7 @@ import com.example.eric.quickheadline.model.News;
 import com.example.eric.quickheadline.utils.ForecastUtils;
 import com.example.eric.quickheadline.utils.HelperUtils;
 import com.example.eric.quickheadline.utils.PreferenceUtils;
+import com.example.eric.quickheadline.utils.VerticalSpaceItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,12 +116,6 @@ public class HomeFragment extends Fragment implements ArticleAdapter.onItemSelec
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
-//
-//    @Override
-//    public void onClick(View v) {
-//        //change location
-//        resetLocationConfigurations();
-//    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -150,6 +146,7 @@ public class HomeFragment extends Fragment implements ArticleAdapter.onItemSelec
         super.onActivityCreated(savedInstanceState);
         if (getActivity() != null) {
             ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+            toolbar.setNavigationIcon(ContextCompat.getDrawable(getActivity(),R.drawable.ic_round_menu_24px));
             //noinspection ConstantConditions
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.title_top_stories);
         }
@@ -366,16 +363,6 @@ public class HomeFragment extends Fragment implements ArticleAdapter.onItemSelec
 
     ////////// Inner Methods ////////////////////
 
-
-//    /**
-//     * relaunches the welcome screen
-//     */
-//    private void resetLocationConfigurations() {
-//        preferenceUtils.setFirstTimeLaunch(true);
-//        startActivity(new Intent(getActivity(), SplashActivity.class));
-//        //noinspection ConstantConditions
-//        getActivity().finish();
-//    }
 
     /**
      * formats and add appropriate units to temperature values

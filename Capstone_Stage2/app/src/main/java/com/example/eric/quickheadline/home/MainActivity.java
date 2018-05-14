@@ -47,6 +47,7 @@ import butterknife.ButterKnife;
  * this class handles the bottom navigation and it's associated fragments
  */
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
     private static final String LOG_TAG = MainActivity.class.getName();//for debugging purpose
 
     @BindView(R.id.navigation)

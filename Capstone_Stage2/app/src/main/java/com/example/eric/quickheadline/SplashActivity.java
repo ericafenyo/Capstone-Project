@@ -46,6 +46,7 @@ public class SplashActivity extends AppCompatActivity {
 
         //check if the app is launched for the first time and display the correct screen
         if (preferenceUtils.isFirstTimeLaunch()) {
+            Log.v(LOG_TAG, "onCreate()");
             launchWelcomeScreen();
         } else {
             launchHomeScreen();

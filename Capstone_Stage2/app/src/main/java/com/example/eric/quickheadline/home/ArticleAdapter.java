@@ -19,10 +19,10 @@ package com.example.eric.quickheadline.home;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,7 +79,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         holder.tvArticleTitle.setText(articles.getTitle());
         holder.tvArticleSource.setText(articles.getSource().getName());
         String utcDate = DateUtils.getUTCDate(articles.getPublishedAt());
-        holder.tvArticlePublishedDate.setText(DateUtils.getLocalDate(utcDate));
+        holder.textArticleDescription.setText(articles.getDescription());
 
         GlideApp.with(mContext).load(articles.getUrlToImage()).placeholder((R.color.colorGrayLight))
                 .into(holder.ivArticleThumbnail);
@@ -91,14 +91,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     }
 
     public class ArticleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        @BindView(R.id.tv_article_title)
-        TextView tvArticleTitle;
-        @BindView(R.id.tv_article_source)
-        TextView tvArticleSource;
-        @BindView(R.id.tv_article_date)
-        TextView tvArticlePublishedDate;
-        @BindView(R.id.iv_article_thumbnail)
-        ImageView ivArticleThumbnail;
+
+        @BindView(R.id.image_article_thumbnail) ImageView ivArticleThumbnail;
+
+        @BindView(R.id.text_article_source) TextView tvArticleSource;
+
+        @BindView(R.id.text_article_title) TextView tvArticleTitle;
+
+        @BindView(R.id.text_article_description) TextView textArticleDescription;
 
         public ArticleViewHolder(View itemView) {
             super(itemView);
