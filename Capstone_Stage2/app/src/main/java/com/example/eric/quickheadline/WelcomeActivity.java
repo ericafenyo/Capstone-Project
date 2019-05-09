@@ -83,7 +83,6 @@ public class WelcomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         ((MyApp) getApplication()).getComponent().inject(this);
 
-        Log.v(LOG_TAG, "WelcomeActivity");
         //makes links within TextViews clickable
         tvTerms.setMovementMethod(LinkMovementMethod.getInstance());
     }
@@ -91,7 +90,6 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
     }
 
     @Override
@@ -113,9 +111,6 @@ public class WelcomeActivity extends AppCompatActivity {
                             String countryCode = data.getCountryCode();
                             String languages = StringUtils.getLanguage(data.getLanguages());
                             String countryName = data.getCountryName();
-//                            Log.v("LOG_TAG", String.valueOf(place.getAddress()));//for debugging purpose
-//                            Log.v("LOG_TAG", String.valueOf(place.getLocale()));//for debugging purpose
-//                            Log.v("LOG_TAG", String.valueOf(place.getName()));//for debugging purpose
 
                             /* store objects in array to be saved to file
                             * [
@@ -142,6 +137,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Country> call, Throwable t) {
+                        Log.e(LOG_TAG, call.request().url().toString());
                         Log.e(LOG_TAG, "Failed to load geoName data " + t);
                     }
                 });
@@ -218,7 +214,6 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void onSuccess() {
         preferenceUtils.setFirstTimeLaunch(false);
